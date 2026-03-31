@@ -1,0 +1,3 @@
+{
+  "extends": "@budgy/config/tsconfig.base.json"
+}
