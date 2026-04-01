@@ -9,8 +9,14 @@
  */
 
 import type * as auth from "../auth.js";
+import type * as budgets from "../budgets.js";
+import type * as categories from "../categories.js";
+import type * as dashboard from "../dashboard.js";
+import type * as expenses from "../expenses.js";
 import type * as healthCheck from "../healthCheck.js";
 import type * as http from "../http.js";
+import type * as incomes from "../incomes.js";
+import type * as members from "../members.js";
 import type * as privateData from "../privateData.js";
 
 import type {
@@ -21,8 +27,14 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   auth: typeof auth;
+  budgets: typeof budgets;
+  categories: typeof categories;
+  dashboard: typeof dashboard;
+  expenses: typeof expenses;
   healthCheck: typeof healthCheck;
   http: typeof http;
+  incomes: typeof incomes;
+  members: typeof members;
   privateData: typeof privateData;
 }>;
 
