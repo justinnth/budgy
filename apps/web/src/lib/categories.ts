@@ -1,0 +1,15 @@
+export const DEFAULT_CATEGORIES = [
+  "Housing",
+  "Groceries",
+  "Transportation",
+  "Utilities",
+  "Insurance",
+  "Healthcare",
+  "Entertainment",
+  "Subscriptions",
+  "Clothing",
+  "Education",
+  "Personal Care",
+  "Debt",
+  "Other",
+] as const;
