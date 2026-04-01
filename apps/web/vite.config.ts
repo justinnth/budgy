@@ -15,7 +15,7 @@ export default defineConfig({
         name: "budgy",
         short_name: "budgy",
         description: "budgy - PWA Application",
-        theme_color: "#0c0c0c",
+        theme_color: "#fdfdfd",
       },
       pwaAssets: { disabled: false, config: true },
       devOptions: { enabled: true },

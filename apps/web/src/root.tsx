@@ -16,7 +16,6 @@ import {
 import { authClient } from "@/lib/auth-client";
 
 import type { Route } from "./+types/root";
-import Header from "./components/header";
 import { ThemeProvider } from "./components/theme-provider";
 
 export const links: Route.LinksFunction = () => [
@@ -24,7 +23,7 @@ export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Mono:wght@400;700&display=swap",
   },
 ];
 
@@ -46,22 +45,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+const convex = new ConvexReactClient(env.VITE_CONVEX_URL, {
+  expectAuth: true,
+});
+
 export default function App() {
-  const convex = new ConvexReactClient(env.VITE_CONVEX_URL, {
-    expectAuth: true,
-  });
   return (
     <ConvexBetterAuthProvider client={convex} authClient={authClient}>
       <ThemeProvider
         attribute="class"
-        defaultTheme="dark"
+        defaultTheme="light"
         disableTransitionOnChange
         storageKey="vite-ui-theme"
       >
-        <div className="grid grid-rows-[auto_1fr] h-svh">
-          <Header />
-          <Outlet />
-        </div>
+        <Outlet />
         <Toaster richColors />
       </ThemeProvider>
     </ConvexBetterAuthProvider>
@@ -82,10 +79,10 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
   return (
     <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
+      <h1 className="font-mono font-bold text-xl">{message}</h1>
+      <p className="text-muted-foreground mt-2">{details}</p>
       {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
+        <pre className="w-full p-4 overflow-x-auto mt-4 rounded-lg bg-muted text-sm">
           <code>{stack}</code>
         </pre>
       )}
